@@ -56,16 +56,14 @@ h1 {
 ## Breakpoints
 
 ```
-    p:  padding,
-    pt: padding-top,
-    pr: padding-right,
-    pb: padding-bottom,
-    pl: padding-left,
-    m:  margin,
-    mt: margin-top,
-    mr: margin-right,
-    mb: margin-bottom,
-    ml: margin-left,
+$breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1280px,
+    xxl: 1920px,
+) !default;
 
 ```
 
