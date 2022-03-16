@@ -11,7 +11,7 @@ Fonction SASS qui génère des class css utilitaires pour gérer l'espacement se
 Cette Exemple : 
 
 ```
-<h1 class="mb-xs-2">Contenu</h1>
+<h1 class="mb-xs-2 mb-md-4">Contenu</h1>
 
 ```
 
@@ -23,6 +23,14 @@ applique la règle css suivante :
             margin-bottom: 0.5rem;
         }
     }
+    
+    @media screen and (min-width: 768px) {
+        .mb-md-4 {
+            margin-bottom: 1.5rem;
+        }
+    }
+    
+    
 ```
 
 ## Propriétés
