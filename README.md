@@ -15,7 +15,7 @@ Cette Exemple :
 
 ```
 
-applique la règle css suivante au <h1> :
+applique la règle css suivante :
 
 ```
     @media screen and (min-width: 0) {
