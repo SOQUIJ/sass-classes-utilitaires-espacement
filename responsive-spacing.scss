@@ -1,0 +1,81 @@
+/**
+  * @CLASSES UTILITAIRES D'ESPACEMENT RESPONSIVE
+  *  Mapping pour générer des classes de marge et de 
+  *  padding en fonction de la taille de l'écran
+  */
+
+// Espacement de base
+$spacer: 1 !default; //1rem
+$spacers: () !default;
+$spacers: map-merge((0: 0,
+        1: ($spacer * .25), //4px
+        2: ($spacer * .5), //8px
+        3: $spacer, //16px
+        4: ($spacer * 1.5), //24px
+        5: ($spacer * 3), //48px
+        6: ($spacer * 4), //64px
+        7: ($spacer * 6), //96px
+    ),
+    $spacers);
+
+// Points de bascule 
+$breakpoints: (xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1280px,
+    xxl: 1920px,
+) !default;
+
+// Nomenclature courte des propriétés margin et padding 
+$space-prefixes: (p: padding,
+    pt: padding-top,
+    pr: padding-right,
+    pb: padding-bottom,
+    pl: padding-left,
+    m: margin,
+    mt: margin-top,
+    mr: margin-right,
+    mb: margin-bottom,
+    ml: margin-left,
+) !default;
+
+// générateur de classes de marge et de padding sans argument de breakpoints
+@mixin spacing-util-single($values, $prefixes) {
+
+    @each $attr-short,
+    $attr-long in $prefixes {
+
+        @each $designation,
+        $value in $values {
+            .#{$attr-short}-#{$designation} {
+                #{$attr-long}: #{$value}#{"rem"};
+            }
+        }
+    }
+}
+
+// Générateur de classes de marge et de padding avec argument de breakpoints
+@mixin spacing-util($values, $prefixes, $breakpoints) {
+
+    @each $breakpoint-name,
+    $breakpoint-value in $breakpoints {
+        @media screen and (min-width: $breakpoint-value) {
+
+            @each $attr-short,
+            $attr-long in $prefixes {
+
+                @each $designation,
+                $value in $values {
+                    .#{$attr-short}-#{$breakpoint-name}-#{$designation} {
+                        #{$attr-long}: #{$value}#{"rem"};
+                    }
+                }
+            }
+        }
+    }
+}
+
+// appliquer globalement les mixins de génération de classes
+@include spacing-util($spacers, $space-prefixes, $breakpoints);
+@include spacing-util-single($spacers, $space-prefixes);
