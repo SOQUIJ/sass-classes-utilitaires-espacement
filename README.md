@@ -1,14 +1,17 @@
 # Classes utilitaires d'espacement
 
 Fonction SASS qui génère des class css utilitaires pour gérer l'espacement selon les différentes tailles d'écran.
-## Nomenclature des class CSS
+
+## Usage
+
+Nomenclature des class CSS
 
 ```
 {propriété}-{breakpoint}-{valeur}
 
 ```
 
-Cette Exemple : 
+Par exemple, les class suivantes : 
 
 ```
 <h1 class="mb-xs-2 mb-md-4">Contenu</h1>
