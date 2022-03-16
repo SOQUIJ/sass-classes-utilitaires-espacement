@@ -18,6 +18,7 @@ Cette Exemple :
 applique la règle css suivante :
 
 ```
+h1 {
     @media screen and (min-width: 0) {
         .mb-xs-2 {
             margin-bottom: 0.5rem;
@@ -29,7 +30,7 @@ applique la règle css suivante :
             margin-bottom: 1.5rem;
         }
     }
-    
+ }  
     
 ```
 
